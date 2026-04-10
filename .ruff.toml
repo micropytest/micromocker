@@ -1,0 +1,44 @@
+target-version = "py310"
+line-length = 99
+indent-width = 2
+extend-include = [
+  "micromocker/",
+  "tests/"
+]
+extend-exclude = [
+  "manifest.py",
+]
+
+[format]
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 99
+quote-style = "double"
+
+[lint]
+extend-select = [
+  "C9",
+  "PLC",
+]
+extend-ignore = [
+  "E401",
+  "E402",
+  "E722",
+  "E731",
+  "E741",
+  "F401",
+  "F403",
+  "F405",
+  "PLC0206",
+  "PLC0415",
+]
+
+exclude = [
+
+]
+
+[lint.flake8-quotes]
+docstring-quotes = "double"
+
+[lint.flake8-type-checking]
+strict = true

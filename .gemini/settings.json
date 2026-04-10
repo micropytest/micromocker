@@ -1,0 +1,18 @@
+{
+  "contextFile": ".gemini/GEMINI.md",
+  "excludeTools": [],
+  "commands": {
+    "test": {
+      "command": "poetry run scripts/tests",
+      "description": "Runs the unit test suite using the MicroPython unittest module."
+    },
+    "lint": {
+      "command": "poetry run ruff check . && poetry run pyright",
+      "description": "Runs Ruff linter and Pyright static type checker."
+    },
+    "format": {
+      "command": "poetry run ruff format .",
+      "description": "Formats the codebase using the Ruff formatter."
+    }
+  }
+}

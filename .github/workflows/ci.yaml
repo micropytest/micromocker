@@ -1,0 +1,86 @@
+name: CI (unit tests)
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - "**"
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  unit:
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        python: [3.14]
+        os: [ubuntu-latest]
+    
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v6
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Set up Python ${{ matrix.python }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+          cache: poetry
+      
+      - name: Install dependencies (for Poetry)
+        run: poetry install --no-interaction --no-root
+
+      - name: Static code analysis (Pyright)
+        run: poetry run pyright
+
+      - name: Static code analysis (Ruff)
+        run: |
+          poetry run ruff check
+          poetry run ruff format --check
+      
+      - name: Set up MicroPython
+        run: |
+          BIN_DIR=${{github.workspace}}/.local/bin
+          MICROPY_SRC=/tmp/micropython
+          MICROPY_BIN=$BIN_DIR/micropython
+          mkdir -p $BIN_DIR
+
+          # dependencies
+          sudo apt-get update
+          sudo apt-get install build-essential libffi-dev git pkg-config
+
+          # clone
+          git clone --recursive --depth=1 https://github.com/micropython/micropython.git $MICROPY_SRC
+          cd $MICROPY_SRC
+
+          # mpy-cross compilation
+          make -C mpy-cross
+
+          # unix port compilation
+          cd ports/unix
+          make variant=standard
+
+          # install
+          ln -s $(pwd)/build-standard/micropython $MICROPY_BIN
+          echo $BIN_DIR >> $GITHUB_PATH
+
+          # check
+          $MICROPY_BIN -c "import sys; print(sys.version)"
+      
+      - name: Setup MicroPython dependencies
+        run: |
+          poetry run scripts/install
+      
+      - name: Run unit tests
+        run: |
+          poetry run scripts/tests
