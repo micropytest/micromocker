@@ -1,0 +1,11 @@
+# dev
+.coverage/
+.ruff_cache/
+build/
+dist/
+
+# cache
+__pycache__/
+
+# env
+.env*
