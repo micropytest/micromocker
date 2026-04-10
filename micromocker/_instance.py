@@ -2,11 +2,15 @@ from ._mock import Mock
 
 TYPE_CHECKING = False
 if TYPE_CHECKING:
-  from typing import Any, Callable, Literal
+  from typing import Any, Callable
 
 
 class InstanceMock(Mock):
   """A mock for simulating an instance.
+
+  Observations:
+  - The mocked attributes can use {"*": value} for setting this used when member not found.
+  - The mocked methods can use {"*": callable} for setting this used when member not found.
 
   Attributes:
     _mock_attrs: Mocked attributes.
@@ -16,8 +20,8 @@ class InstanceMock(Mock):
   def __init__(
     self,
     name: str,
-    attrs: dict[str, Any] = {"*": None},
-    meths: dict[str, Callable] = {"*": lambda: None},
+    attrs: dict[str, Any],
+    meths: dict[str, Callable],
   ):
     super().__init__(name)
 

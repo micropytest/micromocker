@@ -13,12 +13,16 @@ class Mocker:
 
   def mock(
     self,
-    attrs: dict[str, Any] = {},
-    meths: dict[str, Callable] = {},
+    attrs: dict[str, Any] | None = None,
+    meths: dict[str, Callable] | None = None,
   ) -> InstanceMock:
     """Returns a mock for simulating an instance."""
 
-    return InstanceMock("mock", attrs, meths)
+    return InstanceMock(
+      "mock",
+      attrs if attrs is not None else {},
+      meths if meths is not None else {},
+    )
 
   def fn(
     self,

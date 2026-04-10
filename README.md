@@ -126,8 +126,8 @@ Prototype:
 ```python
 def mock(
   self,
-  attrs: dict[str, Any] = {"*": None},
-  meths: dict[str, Callable] = {"*": lambda: None},
+  attrs: dict[str, Any] = {},
+  meths: dict[str, Callable] = {},
 ) -> InstanceMock:
   """Creates an instance mock.
 
@@ -152,3 +152,9 @@ The mock searches a member as follows:
 04. Search if **`meths`** defines **`*`**.
 
 05. ***`AttributeError`*** raised if not found.
+
+Example:
+
+```python
+point = mocker.mock(attrs={"x": 12, "*": 34})
+```

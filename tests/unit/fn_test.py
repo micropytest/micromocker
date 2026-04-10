@@ -24,9 +24,17 @@ class TestFnMock(TestCase):
   def test_mocker_fn_raises_error_if_result_and_results(self) -> None:
     """Check that mocker.fn() creates a valid mock."""
 
-    should(lambda: Mocker().fn("sum", result=4, results=[4])).throw(
+    should(lambda: mocker.fn("sum", result=4, results=[4])).throw(
       TypeError,
       match="'result' and 'results' can't be set at the same time. Only one allowed.",
+    )
+
+  def test_mocker_fn_raises_index_error_if_unavailable_result(self) -> None:
+    """Check that mocker.fn() raises IndexError if results ended."""
+
+    should(lambda: mocker.fn("sum", results=[])()).throw(
+      IndexError,
+      match="Mock 'sum' called more times than results configured.",
     )
 
   def test_fn_mock_calls(self) -> None:

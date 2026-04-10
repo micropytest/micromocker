@@ -13,9 +13,16 @@ class call:
     raised: Value raised.
   """
 
-  def __init__(self, args: tuple = (), kwargs={}, *, returned: Any = None, raised: Any = None):
+  def __init__(
+    self,
+    args: tuple = (),
+    kwargs: dict[str, Any] | None = None,
+    *,
+    returned: Any = None,
+    raised: Any = None,
+  ):
     self.args = args
-    self.kwargs = kwargs
+    self.kwargs = kwargs if kwargs is not None else {}
     self.returned = returned
     self.raised = raised
 

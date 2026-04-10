@@ -34,8 +34,11 @@ class FnMock(Mock):
 
   def __call__(self, *args, **kwargs) -> Any:
     # (1) determine value to return
-    if (r := self._mock_results) is not None:
-      value = r[len(self._mock_calls)]
+    if (rs := self._mock_results) is not None:
+      if (cur := len(self._mock_calls)) >= len(rs):
+        raise IndexError(f"Mock '{self._mock_name}' called more times than results configured.")
+
+      value = rs[cur]
     else:
       value = self._mock_result
 

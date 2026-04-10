@@ -3,5 +3,5 @@
   "pythonPlatform": "All",
   "include": ["micromocker/", "tests/"],
   "exclude": ["**/node_modules/", "**/__pycache__/", ".git"],
-  "defineConstant": { "TYPE:CHECKING": true }
+  "defineConstant": { "TYPE_CHECKING": true }
 }
