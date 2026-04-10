@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0",
+  "urls": [
+    [
+      "micromocker/__init__.py",
+      "micromocker/__init__.py"
+    ],
+    [
+      "micromocker/_call.py",
+      "micromocker/_call.py"
+    ],
+    [
+      "micromocker/_fn.py",
+      "micromocker/_fn.py"
+    ],
+    [
+      "micromocker/_instance.py",
+      "micromocker/_instance.py"
+    ],
+    [
+      "micromocker/_mock.py",
+      "micromocker/_mock.py"
+    ],
+    [
+      "micromocker/_mocker.py",
+      "micromocker/_mocker.py"
+    ]
+  ],
+  "deps": [
+    [
+      "inspect",
+      "latest"
+    ],
+    [
+      "unittest",
+      "latest"
+    ],
+    [
+      "unittest-discover",
+      "latest"
+    ]
+  ]
+}
