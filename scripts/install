@@ -1,12 +1,7 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash 
 
-declare -ra std_deps=$(jq -r ".deps[] | .[0]" package.json)
-declare -ra ext_deps=("github:micropytest/micropython-stdlib/src/typing" "github:micropytest/should")
+declare -ra deps=($(jq -r ".deps[] | .[0]" package.json))
 
-for dep in ${std_deps[@]}; do
-  micropython -m mip install $dep
-done
-
-for dep in ${ext_deps[@]}; do
-  micropython -m mip install $dep
+for dep in "${deps[@]}"; do
+  micropython -m mip install -t lib "$dep"
 done

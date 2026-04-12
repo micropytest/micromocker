@@ -3,5 +3,6 @@
   "pythonPlatform": "All",
   "include": ["micromocker/", "tests/"],
   "exclude": ["**/node_modules/", "**/__pycache__/", ".git"],
+  "extraPaths": ["lib/"],
   "defineConstant": { "TYPE_CHECKING": true }
 }
