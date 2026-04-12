@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash 
 
 declare -ra deps=($(jq -r ".deps[] | .[0]" package.json))
 
