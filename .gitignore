@@ -3,6 +3,7 @@
 .ruff_cache/
 build/
 dist/
+lib/
 
 # cache
 __pycache__/

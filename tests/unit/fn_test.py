@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from should import should  # type: ignore
+from should import should
 
 from micromocker import Mocker, call, calls
 from micromocker._fn import FnMock

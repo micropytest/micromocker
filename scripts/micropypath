@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+declare -r SCRIPT='
+import sys
+import os
+
+# File where to save the path.
+FILE_PATH = ".env"
+
+# Environment variable to set with the path.
+PATH = "MICROPYPATH"
+
+# (1) determine PATH to set
+path = ":".join(["", os.getcwd() + "/lib"] + sys.path[1:])
+
+# (2) write file
+print(ln := f"{PATH}={path}")
+
+with open(FILE_PATH, mode="w") as f:
+  f.write(ln)
+'
+
+(unset MICROPYPATH; micropython -c "$SCRIPT")

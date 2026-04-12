@@ -7,6 +7,7 @@ micromock
 micromocker
 micropatcher
 MICROPY
+micropypath
 micropytest
 micropython
 mpremote
