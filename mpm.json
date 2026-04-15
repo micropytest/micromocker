@@ -1,0 +1,37 @@
+{
+  "v": "0.1.0",
+  "name": "micromocker",
+  "desc": "A lightweight lib for mocking things on micro:Pytest and MicroPython.",
+  "keywords": ["mocking", "testing"],
+  "urls": {
+    "homepage": "https://micropytest.com",
+    "git": "https://github.com/micropytest/micromocker",
+    "issues": "https://github.com/micropytest/micromocker/issues"
+  },
+
+  "src": {
+    "dir": "micromocker",
+    "include": [
+      "__init__.py",
+      "_call.py",
+      "_fn.py",
+      "_instance.py",
+      "_mock.py",
+      "_mocker.py"
+    ]
+  },
+
+  "deps": {
+    "dir": "lib",
+    "prod": {
+      "abc": "lib://abc",
+      "inspect": "lib://inspect",
+      "typing": "github://micropytest/micropython-stdlib/src/typing"
+    },
+    "dev": {
+      "should": "github://micropytest/should",
+      "unittest": "lib://unittest",
+      "unittest-discover": "lib://unittest-discover"
+    }
+  }
+}

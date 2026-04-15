@@ -28,23 +28,15 @@
   ],
   "deps": [
     [
+      "abc",
+      "latest"
+    ],
+    [
       "inspect",
       "latest"
     ],
     [
-      "unittest",
-      "latest"
-    ],
-    [
-      "unittest-discover",
-      "latest"
-    ],
-    [
       "github:micropytest/micropython-stdlib/src/typing",
-      "latest"
-    ],
-    [
-      "github:micropytest/should",
       "latest"
     ]
   ]
