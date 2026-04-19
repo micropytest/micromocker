@@ -49,9 +49,6 @@ class Mocker:
       name: Mocked class name.
       result: Instance to return when called.
       results: Instance(s) to return and/or error(s) to raise.
-
-    Raises:
-      ValueError: if result and results unset. One must be set.
     """
 
     # (1) create instance to return if needed
