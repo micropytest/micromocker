@@ -111,8 +111,8 @@ Creation:
 
 ```python
 p = mocker.mock(
-  attrs: {"x": 12, "y": 34},
-  meths: {"xy": lambda: "1234"}
+  attrs={"x": 12, "y": 34},
+  meths={"xy": lambda: "1234"},
 )
 
 print(i.x)      # returns 12
@@ -157,4 +157,14 @@ Example:
 
 ```python
 point = mocker.mock(attrs={"x": 12, "*": 34})
+```
+
+
+## Creating a class mock
+
+Creation:
+
+```python
+C = mocker.cls("ClassName", result=mocker.mock())
+c = C()
 ```
