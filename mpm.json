@@ -1,5 +1,5 @@
 {
-  "v": "0.1.0",
+  "v": "0.2.0",
   "name": "micromocker",
   "desc": "A lightweight lib for mocking things on micro:Pytest and MicroPython.",
   "keywords": ["mocking", "testing"],
@@ -14,6 +14,7 @@
     "include": [
       "__init__.py",
       "_call.py",
+      "_cls.py",
       "_fn.py",
       "_instance.py",
       "_mock.py",

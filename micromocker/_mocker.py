@@ -1,5 +1,6 @@
 from typing import overload
 
+from ._cls import ClsMock
 from ._fn import FnMock
 from ._instance import InstanceMock
 
@@ -34,3 +35,29 @@ class Mocker:
     """Returns a mock for simulating a function."""
 
     return FnMock(name, result, results)
+
+  def cls(
+    self,
+    name="Mock",
+    *,
+    result: Any = None,
+    results: Iterable[Any] | None = None,
+  ) -> ClsMock:
+    """Returns a mock for simulating a class.
+
+    Args:
+      name: Mocked class name.
+      result: Instance to return when called.
+      results: Instance(s) to return and/or error(s) to raise.
+    """
+
+    # (1) create instance to return if needed
+    if result is None and results is None:
+      result = InstanceMock(
+        name.lower(),
+        attrs={"*": None},
+        meths={"*": lambda *_, **__: None},
+      )
+
+    # (2) return class
+    return ClsMock(name, result, results)

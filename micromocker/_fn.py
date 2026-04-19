@@ -11,9 +11,9 @@ class FnMock(Mock):
   If result or results contains an error, this will be raised.
 
   Attributes:
-    _result: Value to return in every call.
-    _results: Values to return. For the 1st call, the value with index 0; and so on.
-    calls: Calls performed on the mock.
+    _mock_result: Value to return in every call.
+    _mock_results: Values to return. For the 1st call, the value with index 0; and so on.
+    _mock_calls: Calls performed on the mock.
 
   Raises:
     TypeError: If result and results configured at the same time.

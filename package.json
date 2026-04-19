@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "urls": [
     [
       "micromocker/__init__.py",
@@ -8,6 +8,10 @@
     [
       "micromocker/_call.py",
       "micromocker/_call.py"
+    ],
+    [
+      "micromocker/_cls.py",
+      "micromocker/_cls.py"
     ],
     [
       "micromocker/_fn.py",
