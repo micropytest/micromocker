@@ -1,14 +1,16 @@
 {
-  "v": "0.2.0",
+  "v": "2026.6.0",
   "name": "micromocker",
   "desc": "A lightweight lib for mocking things on micro:Pytest and MicroPython.",
-  "keywords": ["mocking", "testing"],
+  "keywords": [
+    "mocking",
+    "testing"
+  ],
   "urls": {
     "homepage": "https://micropytest.com",
     "git": "https://github.com/micropytest/micromocker",
     "issues": "https://github.com/micropytest/micromocker/issues"
   },
-
   "src": {
     "dir": "micromocker",
     "include": [
@@ -17,22 +19,56 @@
       "_cls.py",
       "_fn.py",
       "_instance.py",
+      "_manifest.py",
       "_mock.py",
       "_mocker.py"
     ]
   },
-
   "deps": {
-    "dir": "lib",
-    "prod": {
-      "abc": "lib://abc",
-      "inspect": "lib://inspect",
-      "typing": "github://micropytest/micropython-stdlib/src/typing"
+    "dir": "deps/lib",
+    "prod": [
+      "lib://abc",
+      "lib://inspect",
+      "mpmi://typing"
+    ],
+    "dev": [
+      "lib://unittest",
+      "lib://unittest-discover",
+      "mpmi@micropytest://should"
+    ]
+  },
+  "mpmi": {
+    "indexes": {
+      "micropytest": "github://micropytest"
+    }
+  },
+  "scripts": {
+    "build": {
+      "desc": "Prepares the package for its publish",
+      "env": {
+        ".env": true
+      },
+      "params": {
+        "segment": {
+          "desc": "Version segment to increment: major, minor, patch.",
+          "type": "str",
+          "value": ""
+        }
+      },
+      "run": [
+        "[ -n \"{segment}\" ] && micropython -m mpm inc-v {segment} || exit 0",
+        "micropython -m mpm _manifest",
+        "micropython -m mpm sync",
+        "micropython -m mpm mpy-cross --from-zero",
+        "micropython -m mpm mpy"
+      ]
     },
-    "dev": {
-      "should": "github://micropytest/should",
-      "unittest": "lib://unittest",
-      "unittest-discover": "lib://unittest-discover"
+    "tests": {
+      "desc": "Runs the tests.",
+      "env": {
+        ".env": true
+      },
+      "run": "scripts/tests"
     }
   }
 }
