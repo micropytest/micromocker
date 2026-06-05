@@ -1,47 +1,18 @@
 {
-  "version": "0.2.0",
+  "version": "2026.6.0",
   "urls": [
-    [
-      "micromocker/__init__.py",
-      "micromocker/__init__.py"
-    ],
-    [
-      "micromocker/_call.py",
-      "micromocker/_call.py"
-    ],
-    [
-      "micromocker/_cls.py",
-      "micromocker/_cls.py"
-    ],
-    [
-      "micromocker/_fn.py",
-      "micromocker/_fn.py"
-    ],
-    [
-      "micromocker/_instance.py",
-      "micromocker/_instance.py"
-    ],
-    [
-      "micromocker/_mock.py",
-      "micromocker/_mock.py"
-    ],
-    [
-      "micromocker/_mocker.py",
-      "micromocker/_mocker.py"
-    ]
+    ["micromocker/__init__.py", "micromocker/__init__.py"],
+    ["micromocker/_call.py", "micromocker/_call.py"],
+    ["micromocker/_cls.py", "micromocker/_cls.py"],
+    ["micromocker/_fn.py", "micromocker/_fn.py"],
+    ["micromocker/_instance.py", "micromocker/_instance.py"],
+    ["micromocker/_manifest.py", "micromocker/_manifest.py"],
+    ["micromocker/_mock.py", "micromocker/_mock.py"],
+    ["micromocker/_mocker.py", "micromocker/_mocker.py"]
   ],
   "deps": [
-    [
-      "abc",
-      "latest"
-    ],
-    [
-      "inspect",
-      "latest"
-    ],
-    [
-      "github:micropytest/micropython-stdlib/src/typing",
-      "latest"
-    ]
+    ["abc", "latest"],
+    ["inspect", "latest"],
+    ["github:mpmidev/default/typing", "latest"]
   ]
 }

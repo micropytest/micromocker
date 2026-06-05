@@ -89,4 +89,5 @@ jobs:
       
       - name: Run unit tests
         run: |
+          export MICROPYPATH=:deps/lib:.frozen:$HOME/.micropython/lib:/usr/lib/micropython
           poetry run scripts/tests

@@ -11,7 +11,7 @@ FILE_PATH = ".env"
 PATH = "MICROPYPATH"
 
 # (1) determine PATH to set
-path = ":".join(["", os.getcwd() + "/lib"] + sys.path[1:])
+path = ":".join(["", os.getcwd() + "/deps/lib"] + sys.path[1:])
 
 # (2) write file
 print(ln := f"{PATH}={path}")

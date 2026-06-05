@@ -4,5 +4,5 @@ declare -ra prod=($(jq -r ".deps[] | .[0]" package.json))
 declare -ra dev=("github:micropytest/should" "unittest" "unittest-discover")
 
 for dep in "${prod[@]}" "${dev[@]}"; do
-  micropython -m mip install -t lib "$dep"
+  micropython -m mip install -t deps/lib "$dep"
 done
