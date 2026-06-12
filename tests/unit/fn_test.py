@@ -1,3 +1,4 @@
+import asyncio
 from unittest import TestCase
 
 from should import should
@@ -78,14 +79,14 @@ class TestFnMock(TestCase):
     out = calls(fn)
     should(out).be_eq([call(("hello", "world!"), returned=None)])
 
-  async def test_async_fn(self) -> None:
+  def test_async_fn(self) -> None:
     """Check that async_fn() works ok when called."""
 
     # (1) arrange
-    fn = mocker.async_fn()
+    fn = mocker.async_fn(result=42)
 
     # (2) act
-    out = fn()
+    out = asyncio.run(fn(1, 2))
 
     # (3) assessment
-    should(out).be_coro()
+    should(out).be_eq(42)

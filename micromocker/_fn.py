@@ -55,4 +55,4 @@ class AsyncFnMock(FnMock):
   """A mock for simulating an asynchronous function."""
 
   async def __call__(self, *args, **kwargs) -> Any:
-    super().__call__(args, kwargs)
+    return super().__call__(*args, **kwargs)

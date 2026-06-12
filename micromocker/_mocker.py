@@ -47,7 +47,7 @@ class Mocker:
     *,
     result: Any = None,
     results: Iterable[Any] | None = None,
-  ) -> FnMock:
+  ) -> AsyncFnMock:
     """Returns a mock for simulating an asynchronous function."""
 
     return AsyncFnMock(name, result, results)
