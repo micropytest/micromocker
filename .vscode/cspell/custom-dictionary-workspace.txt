@@ -1,4 +1,6 @@
 __pycache__
+cmdln
+coro
 delitem
 depbot
 getcwd

@@ -1,5 +1,5 @@
 {
-  "v": "2026.6.0",
+  "v": "2026.6.1",
   "name": "micromocker",
   "desc": "A lightweight lib for mocking things on micro:Pytest and MicroPython.",
   "keywords": [
@@ -25,7 +25,7 @@
     ]
   },
   "deps": {
-    "dir": "deps/lib",
+    "lib": "deps/lib",
     "prod": [
       "lib://abc",
       "lib://inspect",
@@ -45,9 +45,7 @@
   "scripts": {
     "build": {
       "desc": "Prepares the package for its publish",
-      "env": {
-        ".env": true
-      },
+      "env": true,
       "params": {
         "segment": {
           "desc": "Version segment to increment: major, minor, patch.",
@@ -65,9 +63,8 @@
     },
     "tests": {
       "desc": "Runs the tests.",
-      "env": {
-        ".env": true
-      },
+      "env": true,
+      "out": "cmdln+out",
       "run": "scripts/tests"
     }
   }

@@ -1,5 +1,5 @@
 {
-  "version": "2026.6.0",
+  "version": "2026.6.1",
   "urls": [
     ["micromocker/__init__.py", "micromocker/__init__.py"],
     ["micromocker/_call.py", "micromocker/_call.py"],

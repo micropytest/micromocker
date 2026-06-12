@@ -62,3 +62,30 @@ class TestFnMock(TestCase):
     # (2) act and assert
     should(lambda: fn()).throw(TypeError, match="Invalid type.")
     should(calls(fn)).have_len(1)
+
+  def test_print_mock(self) -> None:
+    """Check that the print mock works ok when called."""
+
+    # (1) arrange
+    fn = mocker.print()
+
+    # (2) act
+    out = fn("hello", "world!")
+
+    # (3) assessment
+    should(out).be_none()
+
+    out = calls(fn)
+    should(out).be_eq([call(("hello", "world!"), returned=None)])
+
+  async def test_async_fn(self) -> None:
+    """Check that async_fn() works ok when called."""
+
+    # (1) arrange
+    fn = mocker.async_fn()
+
+    # (2) act
+    out = fn()
+
+    # (3) assessment
+    should(out).be_coro()
