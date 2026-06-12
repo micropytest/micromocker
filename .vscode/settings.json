@@ -63,5 +63,7 @@
   "chat.agent.enabled": false,
   "chat.disableAIFeatures": true,
   "python-envs.defaultEnvManager": "ms-python.python:system",
-  "python-envs.defaultPackageManager": "ms-python.python:pip"
+  "python-envs.defaultPackageManager": "ms-python.python:pip",
+
+   "mermaidChart.showGenerateDiagramCodeLens": false
 }

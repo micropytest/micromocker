@@ -28,7 +28,7 @@ fn = mocker.fn("sum", result=4)
 fn(12, 34)  # returns 4
 ```
 
-Prototype:
+Prototypes:
 
 ```python
 def fn(
@@ -51,6 +51,18 @@ def fn(
   Raises:
     TypeError: If result and results set. Only one allowed.
   """
+
+def async_fn(
+  self,
+  name="mock",
+  *,
+  result: Any = None,
+  results: Iterable[Any] | None = None
+) -> AsyncFnMock:
+  """Creates an asynchronous function mock."""
+
+def print(self) -> FnMock:
+  """Creates a dummy mock for the print() function."""
 ```
 
 If a result value is an ***`Exception`*** instance, the call will raise this error.

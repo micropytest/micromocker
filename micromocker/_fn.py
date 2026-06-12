@@ -49,3 +49,10 @@ class FnMock(Mock):
     else:
       self._mock_calls.append(call(args, kwargs, returned=value))
       return value
+
+
+class AsyncFnMock(FnMock):
+  """A mock for simulating an asynchronous function."""
+
+  async def __call__(self, *args, **kwargs) -> Any:
+    return super().__call__(*args, **kwargs)

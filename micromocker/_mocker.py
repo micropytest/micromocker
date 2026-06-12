@@ -1,7 +1,7 @@
 from typing import overload
 
 from ._cls import ClsMock
-from ._fn import FnMock
+from ._fn import AsyncFnMock, FnMock
 from ._instance import InstanceMock
 
 TYPE_CHECKING = False
@@ -25,6 +25,11 @@ class Mocker:
       meths if meths is not None else {},
     )
 
+  def print(self) -> FnMock:
+    """Returns a mock for the print() function."""
+
+    return FnMock("print")
+
   def fn(
     self,
     name="mock",
@@ -35,6 +40,17 @@ class Mocker:
     """Returns a mock for simulating a function."""
 
     return FnMock(name, result, results)
+
+  def async_fn(
+    self,
+    name="mock",
+    *,
+    result: Any = None,
+    results: Iterable[Any] | None = None,
+  ) -> AsyncFnMock:
+    """Returns a mock for simulating an asynchronous function."""
+
+    return AsyncFnMock(name, result, results)
 
   def cls(
     self,
