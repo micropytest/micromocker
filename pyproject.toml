@@ -16,7 +16,7 @@ build-backend = "poetry.core.masonry.api"
 dev = [
   "mpremote (>=1.28.0,<2.0.0)",
   "pyright (>=1.1.410,<2.0.0)",
-  "ruff (>=0.15.17,<1.0.0)",
+  "ruff (>=0.15.22,<1.0.0)",
 ]
 
 [tool.poetry]
